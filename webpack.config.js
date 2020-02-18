@@ -1,5 +1,3 @@
-import Menu from "components/Menu";
-
 const path = require("path");
 const getFilesFromDir = require("./config/files");
 const PAGE_DIR = path.join("src", "pages", path.sep);
@@ -7,7 +5,7 @@ const PAGE_DIR = path.join("src", "pages", path.sep);
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const htmlFiles = getFilesFromDir(PAGE_DIR, [".html"]);
 
-const jsFiles = getFiles~FromDir(PAGE_DIR, [".js"]);
+const jsFiles = getFilesFromDir(PAGE_DIR, [".js"]);
 const entry = jsFiles.reduce( (obj, filePath) => {
     const entryChunkName = filePath.replace(path.extname(filePath), "").replace(PAGE_DIR, "");
     obj[entryChunkName] = `./${filePath}`;
@@ -23,12 +21,28 @@ const htmlPlugins = htmlFiles.map( filePath => {
 });
 
 module.exports = {
-    entry: entry
+    entry: entry,
+    // mode: 'production',
     plugins:[...htmlPlugins],
-    resolve:{
-        alias:{
+    resolve: {
+        alias: {
             src: path.resolve(__dirname, "src"),
             components: path.resolve(__dirname, "src", "components")
         }
+    },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                      '@babel/preset-env',
+                      '@babel/preset-react'
+                    ]
+                }
+            }
+        }]
     },
 };

@@ -4,7 +4,6 @@
     "description": "A basic website in React and Node.",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack -d --watch",
         "start": "node ./server/index.js",
         "build": "webpack -p",
         "react-dev": "webpack -d --watch",

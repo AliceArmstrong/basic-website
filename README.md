@@ -1,5 +1,4 @@
 # basic-website
-
 A basic website in React and Node, which will become my online portfolio.
 
 - git clone https://github.com/AliceArmstrong/basic-website.git

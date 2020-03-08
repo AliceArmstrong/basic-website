@@ -1,2 +1,11 @@
-node_modules
-env
+# Env
+.env
+# Logs
+logs
+*.Logs
+# Compiled directory and file
+build/
+bundle.js
+# Dependency directories
+node_modules/
+dist

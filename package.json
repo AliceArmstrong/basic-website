@@ -4,6 +4,7 @@
     "description": "A basic website in React and Node.",
     "main": "index.js",
     "scripts": {
+        "dev": "cross-env APIURL=staging node build/dev-server.js",
         "start": "node ./server/index.js",
         "build": "webpack -p",
         "react-dev": "webpack -d --watch",
@@ -24,13 +25,19 @@
         "@babel/preset-env": "^7.8.4",
         "@babel/preset-react": "^7.8.3",
         "babel-loader": "^8.0.6",
+        "eslint": "^6.1.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-react": "^7.18.3",
+        "eslint-plugin-react-hooks": "^1.7.0",
         "html-webpack-plugin": "^3.2.0",
+        "react-hot-loader": "^4.12.19",
         "webpack": "^4.41.6",
         "webpack-cli": "^3.3.11",
         "webpack-dev-server": "^3.10.3"
     },
     "dependencies": {
-        "babel-preset-es2015": "^6.24.1",
         "body-parser": "^1.19.0",
         "express": "^4.17.1",
         "react": "^16.12.0",
